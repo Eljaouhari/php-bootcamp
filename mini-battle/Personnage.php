@@ -1,11 +1,15 @@
 <?php
+
+// TODO: Implémenté Un système de force. La force du personnage pourrait augmenter en fonction de son niveau, et les dégâts infligés à la victime seront donc plus importants.
+
 class Personnage
 {
   private $_degats,
           $_id,
           $_nom,
           $_niveau,
-          $_experience;
+          $_experience,
+          $_forcePerso;
   
   const CEST_MOI = 1; // Constante renvoyée par la méthode `frapper` si on se frappe soi-même.
   const PERSONNAGE_TUE = 2; // Constante renvoyée par la méthode `frapper` si on a tué le personnage en le frappant.
@@ -103,6 +107,9 @@ class Personnage
     return $this->_experience;
   }
   
+  public function forcePerso(){
+    return $this->_forcePerso;
+  }
   
     
   public function setId($id)
@@ -148,6 +155,14 @@ class Personnage
 
     if($experience > 0 && $experience <= 100){
        $this->_experience = $experience;
+    }
+  }
+
+  public function setForcePerso($forcePerso){
+    $forcePerso = (int) $forcePerso;
+
+    if($forcePerso >= 0 && $forcePerso <= 100){
+      $this->_forcePerso = $forcePerso;
     }
   }
 
