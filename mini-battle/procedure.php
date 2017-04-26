@@ -16,7 +16,7 @@ if (isset($_GET['deconnexion']))
   exit();
 }
 
-$db = new PDO('mysql:host=localhost;dbname=combats', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=minibattle', 'root', '3EhF!t&TtHf3\'s');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); // On émet une alerte à chaque fois qu'une requête a échoué.
 
 $manager = new PersonnagesManager($db);
@@ -128,7 +128,9 @@ if (isset($perso)) // Si on utilise un personnage (nouveau ou pas).
       <legend>Mes informations</legend>
       <p>
         Nom : <?= htmlspecialchars($perso->nom()) ?><br />
-        Dégâts : <?= $perso->degats() ?>
+        Dégâts : <?= $perso->degats() ?><br />
+        Niveau : <?= $perso->niveau() ?><br />
+        Experience : <?= $perso->experience() ?><br />
       </p>
     </fieldset>
     
@@ -158,7 +160,7 @@ else
 else
 {
 ?>
-    <form action="" method="post">
+    <form action="procedure.php" method="post">
       <p>
         Nom : <input type="text" name="nom" maxlength="50" />
         <input type="submit" value="Créer ce personnage" name="creer" />

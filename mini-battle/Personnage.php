@@ -59,12 +59,6 @@ class Personnage
   
   // GETTERS //
   
-
-  public function degats()
-  {
-    return $this->_degats;
-  }
-  
   public function id()
   {
     return $this->_id;
@@ -74,17 +68,24 @@ class Personnage
   {
     return $this->_nom;
   }
-  
-  public function setDegats($degats)
+
+  public function degats()
   {
-    $degats = (int) $degats;
-    
-    if ($degats >= 0 && $degats <= 100)
-    {
-      $this->_degats = $degats;
-    }
+    return $this->_degats;
+  }
+
+  public function niveau()
+  {
+    return $this->_niveau;
+  }
+
+  public function experience()
+  {
+    return $this->_experience;
   }
   
+  
+    
   public function setId($id)
   {
     $id = (int) $id;
@@ -102,4 +103,33 @@ class Personnage
       $this->_nom = $nom;
     }
   }
+
+  public function setDegats($degats)
+  {
+    $degats = (int) $degats;
+    
+    if ($degats >= 0 && $degats <= 100)
+    {
+      $this->_degats = $degats;
+    }
+  }
+
+  public function setNiveau($niveau)
+  {
+    $niveau = (int) $niveau;
+
+    if($niveau > 0 && $niveau <= 100){
+       $this->_niveau = $niveau;
+    }
+  }
+
+  public function setExperience($experience)
+  {
+    $experience = (int) $experience;
+
+    if($experience > 0 && $experience <= 100){
+       $this->_experience = $experience;
+    }
+  }
+
 }
