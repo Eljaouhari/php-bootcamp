@@ -63,7 +63,7 @@ class Personnage
   public function gagnerExperience()
   {
     // Si on vient de tuer un personnage on gagne de l'experience'
-      $this->_experience /= 3;
+      $this->_experience += 100;
       $this->passerNiveau();
   }
 
@@ -75,10 +75,15 @@ class Personnage
     if($experience >= 100){
       $this->_experience -= 100;
       $this->_niveau++;
+      $this->augmenterForce();
     }
 
   }
   
+  public function augmenterForce()
+  {
+    $this->_forcePerso += 10;
+  }
   
   // GETTERS //
   
