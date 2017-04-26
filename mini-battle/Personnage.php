@@ -55,6 +55,25 @@ class Personnage
     // Sinon, on se contente de dire que le personnage a bien été frappé.
     return self::PERSONNAGE_FRAPPE;
   }
+
+  public function gagnerExperience()
+  {
+    // Si on vient de tuer un personnage on gagne de l'experience'
+      $this->_experience /= 3;
+      $this->passerNiveau();
+  }
+
+  public function passerNiveau()
+  {
+    // Si l'experience du joueur atteint 100 donc le personnage passe de niveau
+    $experience = $this->experience(); 
+
+    if($experience >= 100){
+      $this->_experience -= 100;
+      $this->_niveau++;
+    }
+
+  }
   
   
   // GETTERS //

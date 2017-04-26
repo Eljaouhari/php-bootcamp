@@ -94,7 +94,7 @@ elseif (isset($_GET['frapper'])) // Si on a cliqué sur un personnage pour le fr
         
         case Personnage::PERSONNAGE_TUE :
           $message = 'Vous avez tué ce personnage !';
-          
+          $perso->gagnerExperience();
           $manager->update($perso);
           $manager->delete($persoAFrapper);
           
